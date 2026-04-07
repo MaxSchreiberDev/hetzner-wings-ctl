@@ -3,13 +3,13 @@
 A minimal Bash CLI for managing a Hetzner Cloud game server — spin it up from a snapshot, schedule automatic shutdown with backup, and track costs. Built for a [Pterodactyl](https://pterodactyl.io/) wings node that only needs to run on demand.
 Script made with help of AI.
 
----
+
 
 ## Why
 
 Running a game server 24/7 is wasteful. This script lets you boot the server when needed, set a shutdown timer, and automatically snapshot before deletion — so you only pay for what you use.
 
----
+
 
 ## How it works
 
@@ -23,7 +23,7 @@ wings-ctl kill        # Delete server immediately, no backup
 wings-ctl rm <id>     # Delete a specific snapshot
 ```
 
----
+
 
 ## Usage examples
 
@@ -56,7 +56,7 @@ wings-ctl rm <id>     # Delete a specific snapshot
 ./wings-ctl kill
 ```
 
----
+
 
 ## Setup
 
@@ -91,7 +91,7 @@ PRICE_PER_GB=0.0143            # Snapshot cost per GB/month (check Hetzner prici
 sudo ln -s $(pwd)/wings-ctl.sh /usr/local/bin/wings-ctl
 ```
 
----
+
 
 ## Timer behavior
 
@@ -103,13 +103,23 @@ The timer survives terminal sessions via `nohup`. You can check remaining time, 
 
 Desktop notifications are sent on shutdown if `notify-send` is available.
 
----
+
 
 ## Snapshot labels
 
 All snapshots created by this script are labeled `type=wings-backup`. The `up` command always boots from the most recently created snapshot with this label, so the workflow is fully automatic after initial setup.
 
----
+
+
+## Dependencies
+
+| Tool | Purpose | Install |
+|---|---------|---------|
+| [hcloud CLI](https://github.com/hetznercloud/cli) | Hetzner API | `yay -S hcloud` / [releases](https://github.com/hetznercloud/cli/releases) |
+| `awk` | Cost calculation | Pre-installed on most Linux distros |
+| `pkill` | Timer management | Pre-installed (`procps` package) |
+
+
 
 ## Notes
 
