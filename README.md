@@ -1,4 +1,4 @@
-# wings-ctl
+# hetzner wings-ctl
 
 A minimal Bash CLI for managing a Hetzner Cloud game server — spin it up from a snapshot, schedule automatic shutdown with backup, and track costs. Built for a [Pterodactyl](https://pterodactyl.io/) wings node that only needs to run on demand.
 
@@ -47,6 +47,9 @@ wings-ctl rm <id>     # Delete a specific snapshot
 
 # Shutdown now with a custom snapshot name
 ./wings-ctl down "post-session-backup"
+
+# Delete an snapshot
+./wings-ctl rm "post-session-backup"
 
 # Nuke the server immediately (no snapshot)
 ./wings-ctl kill
@@ -109,6 +112,6 @@ All snapshots created by this script are labeled `type=wings-backup`. The `up` c
 
 ## Notes
 
-- Developed with AI assistance (Claude)
-- Tested on Arch Linux / CachyOS with hcloud CLI v1.x
+- Developed with AI assistance (Claude and Gemini)
+- Tested on Debian with hcloud CLI v1.x
 - Not affiliated with Hetzner or Pterodactyl
