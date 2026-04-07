@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# TRANSPARENCY NOTE: Made with AI
-
 # --- KONFIGURATION ---
 export HCLOUD_TOKEN=""       # Insert your Hetzner Cloud API Token here
 

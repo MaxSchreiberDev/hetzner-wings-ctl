@@ -1,6 +1,7 @@
 # hetzner wings-ctl
 
 A minimal Bash CLI for managing a Hetzner Cloud game server — spin it up from a snapshot, schedule automatic shutdown with backup, and track costs. Built for a [Pterodactyl](https://pterodactyl.io/) wings node that only needs to run on demand.
+Script made with help of AI.
 
 ---
 
