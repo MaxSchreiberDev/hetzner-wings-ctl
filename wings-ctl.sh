@@ -21,6 +21,20 @@ RED='\033[1;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
+# --- DEPENDENCY CHECK ---
+MISSING=()
+command -v hcloud    >/dev/null 2>&1 || MISSING+=("hcloud (https://github.com/hetznercloud/cli)")
+command -v awk       >/dev/null 2>&1 || MISSING+=("awk (meist vorinstalliert, Paket: gawk)")
+command -v pkill     >/dev/null 2>&1 || MISSING+=("pkill (Paket: procps)")
+
+if [ ${#MISSING[@]} -gt 0 ]; then
+    echo -e "${RED}❌ Fehlende Abhängigkeiten:${NC}"
+    for dep in "${MISSING[@]}"; do
+        echo -e "  ${YELLOW}→ $dep${NC}"
+    done
+    exit 1
+fi
+
 # --- HELPER FUNCTIONS ---
 
 show_help() {

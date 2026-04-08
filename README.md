@@ -21,6 +21,7 @@ wings-ctl schedule    # Change/reset the shutdown timer
 wings-ctl cancel      # Cancel the shutdown timer (keeps server running)
 wings-ctl kill        # Delete server immediately, no backup
 wings-ctl rm <id>     # Delete a specific snapshot
+wings-ctl help
 ```
 
 
